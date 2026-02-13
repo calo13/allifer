@@ -50,7 +50,7 @@ Route::get('/pedido-exitoso/{order}', function ($orderId) {
     return view('shop.order-success', compact('order'));
 })->name('shop.order-success');
 
-Route::get('/seguimiento/{orderNumber?}', App\Livewire\Shop\OrderTracking::class)->name('shop.tracking');
+Route::get('/seguimiento/{orderNumber?}', App\Livewire\Shop\OrderTracking::class)->name('shop.order-tracking');
 
 /*
 |--------------------------------------------------------------------------

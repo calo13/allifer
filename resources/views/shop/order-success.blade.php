@@ -116,7 +116,7 @@
 
                 <!-- Botón de Seguimiento -->
                 <div class="mt-4 text-center">
-                    <a href="{{ route('shop.tracking', ['orderNumber' => $order->order_number]) }}" class="text-indigo-600 hover:text-indigo-800 font-medium">
+                    <a href="{{ route('shop.order-tracking', ['orderNumber' => $order->order_number]) }}" class="text-indigo-600 hover:text-indigo-800 font-medium">
                         <i class="fas fa-search-location mr-1"></i> Rastrear mi pedido
                     </a>
                 </div>

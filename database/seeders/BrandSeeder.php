@@ -11,9 +11,13 @@ class BrandSeeder extends Seeder
     public function run(): void
     {
         $brands = [
-            'Cariñitos GT',
-            'Genérico',
-            'Personalizado'
+            'Gallifer',
+            'Bayer',
+            'Syngenta',
+            'Purina',
+            'John Deere',
+            'Corteva',
+            'Yara'
         ];
 
         foreach ($brands as $brand) {

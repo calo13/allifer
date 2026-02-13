@@ -12,28 +12,28 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Sublimación',
-                'description' => 'Todo tipo de productos sublimados personalizados'
+                'name' => 'Semillas',
+                'description' => 'Semillas de alta calidad para cultivos diversos'
             ],
             [
-                'name' => 'Bordados',
-                'description' => 'Bordados de alta calidad para prendas y accesorios'
+                'name' => 'Fertilizantes',
+                'description' => 'Nutrición vegetal para maximizar tus cosechas'
             ],
             [
-                'name' => 'Playeras',
-                'description' => 'Playeras con diseños únicos y personalizados'
+                'name' => 'Veterinaria',
+                'description' => 'Medicamentos y cuidado para animales de granja'
             ],
             [
-                'name' => 'Tazas',
-                'description' => 'Tazas mágicas, de cerámica y más'
+                'name' => 'Herramientas',
+                'description' => 'Herramientas manuales y equipo ligero'
             ],
             [
-                'name' => 'Etiquetas Escolares',
-                'description' => 'Etiquetas personalizadas para el regreso a clases'
+                'name' => 'Riego',
+                'description' => 'Sistemas y accesorios para riego eficiente'
             ],
             [
-                'name' => 'Rollos Personalizados',
-                'description' => 'Rollos con mensajes divertidos y personalizados'
+                'name' => 'Equipo de Protección',
+                'description' => 'Seguridad personal para el trabajo agrícola'
             ]
         ];
 

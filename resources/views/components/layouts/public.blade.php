@@ -206,6 +206,11 @@
                         CONTACTO
                     </a>
 
+                    <!-- Tracking Link -->
+                    <a href="{{ route('shop.order-tracking') }}" class="text-sm font-semibold tracking-wide text-primary-600 hover:text-primary-800 transition-colors flex items-center">
+                        <i class="fas fa-search-location mr-1"></i> RASTREAR
+                    </a>
+
                     <!-- Ícono del carrito -->
                     <div class="hidden md:flex items-center mr-4">
                         <livewire:shop.cart-icon />
@@ -417,6 +422,7 @@
                         <li><a href="{{ route('catalogo') }}" class="hover:text-primary-400 transition-colors">Catálogo de Productos</a></li>
                         <li><a href="#" class="hover:text-primary-400 transition-colors">Tecnología en Granjas</a></li>
                         <li><a href="#" class="hover:text-primary-400 transition-colors">Asesoría Técnica</a></li>
+                        <li><a href="{{ route('shop.order-tracking') }}" class="hover:text-primary-400 transition-colors">Rastrear Pedido</a></li>
                         <li><a href="#" class="hover:text-primary-400 transition-colors">Contacto</a></li>
                     </ul>
                 </div>
