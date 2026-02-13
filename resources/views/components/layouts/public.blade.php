@@ -8,16 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Cariñitos GT' }} - Regalos Personalizados</title>
-    <link rel="icon" href="{{ asset('images/logo-tienda.png') }}" type="image/png">
+    <title>{{ $title ?? 'Gallifer' }} - Agro-Tecnología</title>
+    <link rel="icon" href="{{ asset('images/gallifer.jpeg') }}" type="image/x-icon">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Cariñitos GT - Regalos personalizados, sublimación y bordados en Guatemala.">
-    <meta name="keywords" content="sublimación, regalos, bordados, playeras, tazas, Guatemala">
-    <meta name="author" content="Cariñitos GT">
+    <meta name="description" content="Gallifer Agro-Tecnología - Soluciones integrales para agricultura, avicultura y ganadería en Guatemala.">
+    <meta name="keywords" content="agricultura, avicultura, ganadería, fumigación, semillas, fertilizantes, guatemala, agro-tecnología">
+    <meta name="author" content="Gallifer">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cariñitos GT - Regalos Personalizados">
+    <meta property="og:title" content="Gallifer - Agro-Tecnología">
     <meta property="og:description" content="Detalles únicos para personas especiales. Sublimación y bordados.">
     <meta property="og:type" content="website">
 
@@ -171,116 +171,126 @@
 
     <!-- Navbar con efecto de scroll -->
     <nav class="sticky top-0 z-50 border-b transition-all duration-300"
-        :class="scrolled ? 'navbar-scrolled border-gray-100' : 'bg-white border-gray-200'">
+        :class="scrolled ? 'navbar-scrolled border-gray-100' : 'bg-white/95 backdrop-blur-md border-gray-200'">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
 
-                <!-- Logo - Visible en móvil -->
-                <a href="{{ route('home') }}" class="flex items-center space-x-2 sm:space-x-3">
-                    <img src="{{ asset('images/logo-tienda.png') }}" alt="Cariñitos GT" class="h-10 sm:h-12 w-auto">
+                <!-- Logo - Gallifer -->
+                <a href="{{ route('home') }}" class="flex items-center space-x-3 group">
+                    <div class="relative w-12 h-12 overflow-hidden rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <img src="{{ asset('images/gallifer.jpeg') }}" alt="Gallifer" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
                     <div>
-                        <span class="text-lg sm:text-xl font-bold text-gray-900">Cariñitos</span><span class="text-lg sm:text-xl font-bold text-pink-600">GT</span>
-                        <span class="hidden sm:block text-xs text-gray-500 -mt-1">Regalos Personalizados</span>
+                        <span class="text-2xl font-bold tracking-tight text-primary-900">Gallifer</span>
+                        <span class="block text-[10px] uppercase tracking-widest text-primary-600 font-semibold mt-0.5">Agro-Tecnología</span>
                     </div>
                 </a>
 
                 <!-- Menu Desktop -->
-                <div class="hidden md:flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="{{ route('home') }}"
-                        class="text-gray-700 hover:text-pink-600 transition-colors font-medium {{ request()->routeIs('home') ? 'text-pink-600' : '' }}">
-                        Inicio
+                        class="text-sm font-semibold tracking-wide transition-colors {{ request()->routeIs('home') ? 'text-primary-700' : 'text-gray-600 hover:text-primary-600' }}">
+                        INICIO
                     </a>
                     <a href="{{ route('catalogo') }}"
-                        class="text-gray-700 hover:text-pink-600 transition-colors font-medium {{ request()->routeIs('catalogo') ? 'text-pink-600' : '' }}">
-                        Catálogo
+                        class="text-sm font-semibold tracking-wide transition-colors {{ request()->routeIs('catalogo') ? 'text-primary-700' : 'text-gray-600 hover:text-primary-600' }}">
+                        CATÁLOGO
                     </a>
-                    <a href="{{ route('home') }}#nosotros" class="text-gray-700 hover:text-pink-600 transition-colors font-medium">
-                        Nosotros
+                    <a href="{{ route('home') }}#tecnologia" class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary-600 transition-colors">
+                        TECNOLOGÍA
                     </a>
-                    <a href="{{ route('home') }}#ubicacion" class="text-gray-700 hover:text-pink-600 transition-colors font-medium">
-                        Ubicación
+                    <a href="{{ route('home') }}#nosotros" class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary-600 transition-colors">
+                        NOSOTROS
                     </a>
-                    <a href="{{ route('home') }}#contacto" class="text-gray-700 hover:text-pink-600 transition-colors font-medium">
-                        Contacto
-                    </a>
-                    <a href="{{ route('shop.tracking') }}" class="text-pink-600 hover:text-pink-800 transition-colors font-medium">
-                        <i class="fas fa-search-location mr-1"></i> Rastrear
+                    <a href="{{ route('home') }}#contacto" class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary-600 transition-colors">
+                        CONTACTO
                     </a>
 
                     <!-- Ícono del carrito -->
+                    <div class="hidden md:flex items-center mr-4">
+                        <livewire:shop.cart-icon />
+                    </div>
+
                     @auth
                     {{-- Menú de usuario con dropdown --}}
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open"
-                            class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-pink-600">
+                            class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none border border-transparent hover:border-gray-200">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-primary-700 text-white shadow-sm">
                                 @if(auth()->user()->avatar)
                                 <img src="{{ asset('storage/' . auth()->user()->avatar) }}"
                                     alt="{{ auth()->user()->name }}"
                                     class="w-full h-full object-cover">
                                 @else
-                                <span class="text-white font-bold text-sm">{{ auth()->user()->initials() }}</span>
+                                <span class="font-bold text-xs">{{ auth()->user()->initials() }}</span>
                                 @endif
                             </div>
-                            <i class="fas fa-chevron-down text-xs text-gray-500 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                            <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
                         </button>
 
                         {{-- Dropdown --}}
                         <div x-show="open"
                             x-cloak
                             @click.away="open = false"
-                            x-transition
-                            class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 ring-1 ring-black ring-opacity-5">
 
                             {{-- Info del usuario --}}
-                            <div class="px-4 py-3 border-b border-gray-100">
-                                <p class="text-sm font-semibold text-gray-900 truncate">{{ auth()->user()->name }}</p>
+                            <div class="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
+                                <p class="text-sm font-bold text-gray-900 truncate">{{ auth()->user()->name }}</p>
                                 <p class="text-xs text-gray-500 truncate">{{ auth()->user()->email }}</p>
                             </div>
 
                             @if(auth()->user()->hasRole('Cliente'))
-                            <a href="{{ route('cliente.pedidos') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                                <i class="fas fa-shopping-bag w-5 text-gray-400"></i> Mis Pedidos
+                            <a href="{{ route('cliente.pedidos') }}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors">
+                                <i class="fas fa-shopping-bag w-5 text-gray-400 mr-2"></i> Mis Pedidos
                             </a>
-                            <a href="{{ route('cliente.perfil') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                                <i class="fas fa-user w-5 text-gray-400"></i> Mi Perfil
+                            <a href="{{ route('cliente.perfil') }}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors">
+                                <i class="fas fa-user w-5 text-gray-400 mr-2"></i> Mi Perfil
                             </a>
                             @else
-                            <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                                <i class="fas fa-tachometer-alt w-5 text-gray-400"></i> Panel Admin
+                            <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors">
+                                <i class="fas fa-tachometer-alt w-5 text-gray-400 mr-2"></i> Panel Admin
                             </a>
-                            <a href="{{ route('admin.pos.index') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                                <i class="fas fa-cash-register w-5 text-gray-400"></i> Punto de Venta
+                            <a href="{{ route('admin.pos.index') }}" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors">
+                                <i class="fas fa-cash-register w-5 text-gray-400 mr-2"></i> Punto de Venta
                             </a>
                             @endif
 
-                            <hr class="my-2">
+                            <div class="border-t border-gray-100 my-1"></div>
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50">
-                                    <i class="fas fa-sign-out-alt w-5"></i> Cerrar Sesión
+                                <button type="submit" class="flex items-center w-full px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                    <i class="fas fa-sign-out-alt w-5 mr-2"></i> Cerrar Sesión
                                 </button>
                             </form>
                         </div>
                     </div>
                     @else
-                    <a href="{{ route('login') }}" class="text-gray-700 hover:text-pink-600 transition-colors font-medium">
-                        Ingresar
-                    </a>
-                    <a href="{{ route('register') }}" class="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-medium">
-                        Registrarse
-                    </a>
+                    <div class="flex items-center space-x-4">
+                        <a href="{{ route('login') }}" class="text-gray-600 hover:text-primary-700 text-sm font-semibold transition-colors">
+                            Ingresar
+                        </a>
+                        <a href="{{ route('register') }}" class="px-5 py-2.5 bg-primary-700 text-white rounded-lg hover:bg-primary-800 transition-all shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
+                            Registrarse
+                        </a>
+                    </div>
                     @endauth
                 </div>
 
                 <!-- Botón móvil + Carrito móvil -->
-                <div class=" flex items-center space-x-3">
+                <div class="flex md:hidden items-center space-x-4">
                     @livewire('shop.cart-icon')
 
                     <button
                         @click="mobileMenuOpen = !mobileMenuOpen"
-                        class="md:hidden text-gray-700 hover:text-pink-600 p-2 focus:outline-none rounded-lg hover:bg-gray-100 transition-colors"
+                        class="text-gray-700 hover:text-primary-700 p-2 focus:outline-none rounded-lg hover:bg-gray-100 transition-colors"
                         type="button"
                         aria-label="Menú">
                         <i x-show="!mobileMenuOpen" class="fas fa-bars text-xl"></i>
@@ -301,61 +311,64 @@
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-2"
             @click.away="mobileMenuOpen = false"
-            class="md:hidden border-t border-gray-200 bg-white shadow-lg absolute w-full left-0">
-            <div class="px-4 py-4 space-y-1">
+            class="md:hidden border-t border-gray-200 bg-white shadow-lg absolute w-full left-0 z-50">
+            <div class="px-4 py-6 space-y-2">
                 <a href="{{ route('home') }}" @click="mobileMenuOpen = false"
-                    class="block py-3 px-4 rounded-lg font-medium transition-colors {{ request()->routeIs('home') ? 'bg-pink-50 text-pink-600' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-home w-6"></i> Inicio
+                    class="block py-3 px-4 rounded-lg font-medium transition-colors border-l-4 {{ request()->routeIs('home') ? 'bg-primary-50 text-primary-800 border-primary-600' : 'text-gray-700 border-transparent hover:bg-gray-50' }}">
+                    Inicio
                 </a>
                 <a href="{{ route('catalogo') }}" @click="mobileMenuOpen = false"
-                    class="block py-3 px-4 rounded-lg font-medium transition-colors {{ request()->routeIs('catalogo') ? 'bg-pink-50 text-pink-600' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-store w-6"></i> Catálogo
+                    class="block py-3 px-4 rounded-lg font-medium transition-colors border-l-4 {{ request()->routeIs('catalogo') ? 'bg-primary-50 text-primary-800 border-primary-600' : 'text-gray-700 border-transparent hover:bg-gray-50' }}">
+                    Catálogo
                 </a>
-                <a href="{{ route('home') }}#nosotros" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-info-circle w-6"></i> Nosotros
+                <a href="{{ route('home') }}#tecnologia" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 border-l-4 border-transparent hover:bg-gray-50 rounded-lg font-medium transition-colors">
+                    Tecnología
                 </a>
-                <a href="{{ route('home') }}#ubicacion" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-map-marker-alt w-6"></i> Ubicación
+                <a href="{{ route('home') }}#nosotros" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 border-l-4 border-transparent hover:bg-gray-50 rounded-lg font-medium transition-colors">
+                    Nosotros
                 </a>
-                <a href="{{ route('home') }}#contacto" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-envelope w-6"></i> Contacto
-                </a>
-                <a href="{{ route('shop.tracking') }}" @click="mobileMenuOpen = false" class="block py-3 px-4 text-pink-600 hover:bg-pink-50 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-search-location w-6"></i> Rastrear Pedido
+                <a href="{{ route('home') }}#contacto" @click="mobileMenuOpen = false" class="block py-3 px-4 text-gray-700 border-l-4 border-transparent hover:bg-gray-50 rounded-lg font-medium transition-colors">
+                    Contacto
                 </a>
 
-                <hr class="my-3">
+                <hr class="my-4 border-gray-100">
 
                 @auth
-                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 bg-pink-600 text-white rounded-lg text-center font-medium">
-                    <i class="fas fa-tachometer-alt mr-2"></i>Panel Admin
-                </a>
+                <div class="px-4 py-2">
+                    <p class="text-xs uppercase text-gray-400 font-bold tracking-wider mb-2">Mi Cuenta</p>
+                    <a href="{{ route('admin.dashboard') }}" class="block py-2 text-sm text-primary-700 font-semibold">
+                        <i class="fas fa-tachometer-alt mr-2"></i>Panel de Control
+                    </a>
+                </div>
                 @else
-                <a href="{{ route('login') }}" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-sign-in-alt w-6"></i> Iniciar Sesión
-                </a>
+                <div class="grid grid-cols-2 gap-4 px-4 pt-2">
+                    <a href="{{ route('login') }}" class="flex items-center justify-center py-3 text-gray-700 hover:text-primary-700 font-semibold bg-gray-50 rounded-lg">
+                        Ingresar
+                    </a>
+                    <a href="{{ route('register') }}" class="flex items-center justify-center py-3 bg-primary-700 text-white rounded-lg font-semibold shadow-md">
+                        Registrarse
+                    </a>
+                </div>
                 @endauth
             </div>
         </div>
     </nav>
 
-    <!-- WhatsApp Flotante con animación -->
-    <!-- WhatsApp Flotante Mejorado -->
+    <!-- WhatsApp Flotante Mejorado (Agro Theme) -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         <!-- Tooltip -->
-        <div class="bg-white px-4 py-2 rounded-xl shadow-lg border border-gray-100 hidden md:block animate-fade-in-up">
-            <p class="text-sm font-semibold text-gray-800">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+        <div class="bg-white px-5 py-3 rounded-xl shadow-xl border border-gray-100 hidden md:block animate-fade-in-up">
+            <p class="text-sm font-semibold text-gray-800">¿Necesita asesoría técnica?</p>
+            <p class="text-xs text-primary-600 font-medium">Hable con un experto avícola</p>
         </div>
 
         <!-- Botón -->
-        <a href="https://wa.me/50245761805?text=Hola,%20me%20gustaría%20más%20información%20sobre%20sus%20productos%20personalizados"
+        <a href="https://wa.me/50245761805?text=Hola,%20quisiera%20asesoría%20sobre%20productos%20avícolas"
             target="_blank"
-            class="relative bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 hover:shadow-green-500/30 group"
+            class="relative bg-emerald-500 hover:bg-emerald-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-105 hover:shadow-emerald-500/40 group border-4 border-white"
             aria-label="Contactar por WhatsApp">
-            <!-- Ping animation wrapper -->
-            <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping group-hover:hidden"></span>
-
-            <i class="fab fa-whatsapp text-3xl z-10"></i>
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-30 animate-ping group-hover:hidden"></span>
+            <i class="fab fa-whatsapp text-4xl z-10"></i>
         </a>
     </div>
 
@@ -364,113 +377,94 @@
         {{ $slot }}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 text-white pt-16 pb-8 relative overflow-hidden">
-        <!-- Decoracion fondo -->
-        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
-        <div class="absolute -top-24 -right-24 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+    <!-- Footer - Professional Agro Theme -->
+    <footer class="bg-slate-900 text-gray-300 relative overflow-hidden">
+        <!-- Accent Line -->
+        <div class="h-1 w-full bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Columna 1: Logo y descripción -->
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="bg-white p-2 rounded-xl shadow-lg">
-                            <img src="{{ asset('images/logo-tienda.png') }}" alt="Cariñitos GT" class="h-12 w-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Brand Info -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white p-1.5 rounded-lg">
+                            <img src="{{ asset('images/gallifer.jpeg') }}" alt="Gallifer" class="h-10 w-10 object-cover rounded">
                         </div>
-                        <div>
-                            <span class="text-2xl font-bold text-white">Cariñitos</span><span class="text-2xl font-bold text-yellow-400">GT</span>
-                            <span class="block text-xs text-pink-200 font-medium tracking-wider">Regalos Personalizados</span>
-                        </div>
+                        <span class="text-2xl font-bold text-white tracking-tight">Gallifer</span>
                     </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed max-w-sm">
-                        Hacemos realidad tus ideas. Sublimación, bordados y regalos únicos para toda ocasión con el cariño que mereces.
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Líderes en soluciones integrales para la industria avícola y ganadera. Innovación, tecnología y nutrición para maximizar su producción.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/Siblimacion?locale=es_LA" target="_blank"
-                            class="w-12 h-12 bg-white/10 hover:bg-blue-600 backdrop-blur-sm rounded-xl flex items-center justify-center transition-all hover:scale-110 border border-white/10"
-                            aria-label="Facebook">
-                            <i class="fab fa-facebook text-xl"></i>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/carinitos.gt" target="_blank"
-                            class="w-12 h-12 bg-white/10 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 backdrop-blur-sm rounded-xl flex items-center justify-center transition-all hover:scale-110 border border-white/10"
-                            aria-label="Instagram">
-                            <i class="fab fa-instagram text-xl"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/50245761805" target="_blank"
-                            class="w-12 h-12 bg-white/10 hover:bg-green-500 backdrop-blur-sm rounded-xl flex items-center justify-center transition-all hover:scale-110 border border-white/10"
-                            aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp text-xl"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Columna 2: Enlaces -->
+                <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-bold mb-6 text-pink-200">Enlaces Rápidos</h3>
-                    <ul class="space-y-3">
-                        <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-white hover:translate-x-2 transition-all inline-block">Inicio</a></li>
-                        <li><a href="{{ route('catalogo') }}" class="text-gray-300 hover:text-white hover:translate-x-2 transition-all inline-block">Catálogo</a></li>
-                        <li><a href="{{ route('home') }}#nosotros" class="text-gray-300 hover:text-white hover:translate-x-2 transition-all inline-block">Nosotros</a></li>
-                        <li><a href="{{ route('home') }}#ubicacion" class="text-gray-300 hover:text-white hover:translate-x-2 transition-all inline-block">Ubicación</a></li>
-                        <li><a href="{{ route('home') }}#contacto" class="text-gray-300 hover:text-white hover:translate-x-2 transition-all inline-block">Contacto</a></li>
+                    <h3 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="{{ route('home') }}" class="hover:text-primary-400 transition-colors">Inicio</a></li>
+                        <li><a href="{{ route('catalogo') }}" class="hover:text-primary-400 transition-colors">Catálogo de Productos</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-colors">Tecnología en Granjas</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-colors">Asesoría Técnica</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-colors">Contacto</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto -->
+                <!-- Contact -->
                 <div>
-                    <h3 class="text-lg font-bold mb-6 text-pink-200">Contáctanos</h3>
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex items-start space-x-3">
-                            <div class="mt-1 bg-green-500/20 p-2 rounded-lg">
-                                <i class="fab fa-whatsapp text-green-400"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-gray-400">WhatsApp</span>
-                                <a href="https://wa.me/50245761805" class="hover:text-white transition-colors font-medium">+502 4576 1805</a>
-                            </div>
+                    <h3 class="text-white font-bold text-lg mb-6">Oficina Central</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-500"></i>
+                            <span>Campo Marte, Zona 5<br>Ciudad de Guatemala</span>
                         </li>
-                        <li class="flex items-start space-x-3">
-                            <div class="mt-1 bg-purple-500/20 p-2 rounded-lg">
-                                <i class="fab fa-instagram text-purple-400"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-gray-400">Instagram</span>
-                                <a href="https://www.instagram.com/carinitos.gt" target="_blank" class="hover:text-white transition-colors font-medium">@carinitos.gt</a>
-                            </div>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary-500"></i>
+                            <span>+502 4576 1805</span>
                         </li>
-                        <li class="flex items-start space-x-3">
-                            <div class="mt-1 bg-pink-500/20 p-2 rounded-lg">
-                                <i class="fas fa-envelope text-pink-400"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-gray-400">Email</span>
-                                <a href="mailto:yezzdeleon92@gmail.com" class="hover:text-white transition-colors break-all text-sm">yezzdeleon92@gmail.com</a>
-                            </div>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-500"></i>
+                            <a href="mailto:info@gallifer.com" class="hover:text-white">info@gallifer.com</a>
                         </li>
-                        <li class="flex items-start space-x-3">
-                            <div class="mt-1 bg-red-500/20 p-2 rounded-lg">
-                                <i class="fas fa-map-marker-alt text-red-400"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-gray-400">Dirección</span>
-                                <span>Campo Marte, Zona 5, Guatemala</span>
-                            </div>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-6">Horario de Atención</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Lunes - Viernes</span>
+                            <span class="font-medium text-white">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Sábado</span>
+                            <span class="font-medium text-white">8:00 AM - 1:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Domingo</span>
+                            <span class="text-primary-400 font-medium">Cerrado</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 mt-8 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-400 text-sm text-center md:text-left">
-                        &copy; {{ date('Y') }} <strong>Cariñitos GT</strong>. Todos los derechos reservados.
-                    </p>
-                    <div class="flex items-center space-x-2 text-sm text-gray-500 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm">
-                        <i class="fas fa-heart text-red-500 animate-pulse"></i>
-                        <span>Hecho con amor en Guatemala</span>
-                    </div>
+            <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; {{ date('Y') }} Gallifer S.A. Todos los derechos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white">Términos de Servicio</a>
                 </div>
             </div>
         </div>
