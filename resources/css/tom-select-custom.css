@@ -1,0 +1,44 @@
+/* Tom Select - Estilos personalizados */
+
+.ts-wrapper.single .ts-control {
+    padding: 0.625rem 1rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.5rem !important;
+    background: white !important;
+}
+
+.ts-wrapper.single .ts-control:focus,
+.ts-wrapper.single.focus .ts-control {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+.ts-wrapper .ts-dropdown {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 0.5rem !important;
+    margin-top: 0.25rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ts-wrapper.single .ts-control input {
+    color: #111827 !important;
+}
+
+.ts-wrapper.single .ts-control input::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Ocultar el bullet de la opción vacía */
+.ts-dropdown .option[data-value=""] {
+    display: none !important;
+}
+
+/* Botón de limpiar */
+.ts-wrapper .clear-button {
+    color: #9ca3af !important;
+    font-size: 1.25rem !important;
+}
+
+.ts-wrapper .clear-button:hover {
+    color: #ef4444 !important;
+}
